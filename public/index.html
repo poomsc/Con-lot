@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOBBY</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <h1>AOB...!</h1>
+    <form id="form" novalidate>
+        <div class="input-group">
+            <label for="email">Table</label>
+            <input name="table" type="number" id="table" autocomplete="off" />
+        </div>
+        <div class="input-group">
+            <label for="email">Number</label>
+            <input name="number" type="text" id="number" autocomplete="off" />
+        </div>
+        <div class="input-group">
+            <label for="password">Negative</label>
+            <input name="checkbox" type="checkbox" id="checkbox" value="1" />
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="output" style="padding: 30px; font-size:20px" onclick="copyText(this)"></p>
+    <p id="copied" style="color: red;"></p>
+    <script>function copyText(element) {
+            var range, selection, worked;
+
+            if (document.body.createTextRange) {
+                range = document.body.createTextRange();
+                range.moveToElementText(element);
+                range.select();
+            } else if (window.getSelection) {
+                selection = window.getSelection();
+                range = document.createRange();
+                range.selectNodeContents(element);
+                selection.removeAllRanges();
+                selection.addRange(range);
+            }
+            try {
+                document.execCommand('copy');
+                document.getElementById('copied').innerText = "Copied"
+            }
+            catch (err) {
+                document.getElementById('copied').innerText = "Can't copy, smt went worng"
+            }
+        }
+    </script>
+    <script src="./start.js"></script>
+    </button>
+
+</html>
